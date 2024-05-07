@@ -1,0 +1,475 @@
+@use "sass:math";
+@use "sass:list";
+//<МИКСИНЫ>===============================================================================================
+@import "mixins";
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+//&display=swap&subset=cyrillic-ext
+@import "fonts";
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+@import "icons";
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontFamily: "pf";
+$fontSize: 18;
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minWidth: 320px;
+$maxWidth: 1680;
+$maxWidthContainer: 1200;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 450;
+
+$mainColor: #2f2c27;
+
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null";
+body {
+	color: $mainColor;
+	font-weight: 300;
+
+	&._lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+::-webkit-scrollbar {
+	width: 0; /* Ширина полосы прокрутки */
+}
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	opacity: 0;
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	&._loaded {
+	}
+	//мало контента
+	&._free {
+		.page {
+			display: block;
+			overflow: visible;
+			position: relative;
+			&__wrapper {
+				display: block;
+			}
+		}
+
+		.paggination {
+			display: none;
+		}
+		.screen_two {
+			@media (min-width: $md1+px) {
+				min-height: 1000px;
+			}
+			@media (max-width: $md1+px) {
+				min-height: 800px;
+			}
+			@media (max-width: $md2+px) {
+				min-height: 700px;
+			}
+			@media (max-width: $md3+px) {
+				min-height: 580px;
+			}
+			@media (max-width: 374px) {
+				min-height: 520px;
+			}
+		}
+		.page-services {
+			position: relative;
+			overflow: visible;
+			&__wrapper {
+				display: block;
+			}
+		}
+		.screen_two.swiper-slide-prev .item-screen-two__image {
+			transform: translate(-50%, -50%);
+		}
+		._body-style {
+			min-height: auto;
+			margin: 0px 0px 40px 0px;
+			@media (max-width: $md3+px) {
+				margin: 0px 0px 20px 0px;
+			}
+			@media (max-width: 500px) {
+				margin: 0px 0px 10px 0px;
+			}
+		}
+		.page__screen:first-child {
+			min-height: 100vh;
+			.screen-one {
+				min-height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+		.page__screen {
+			._body-style {
+				margin: 0;
+			}
+			.screen-two {
+				.slider-screen-two__body {
+					height: auto;
+				}
+				.screen-two__box-content {
+					padding: 50px 0px;
+					@media (max-width: $md3+px) {
+						padding: 30px 0px;
+					}
+				}
+				.item-screen-two__title {
+					@media (max-width: $md3+px) {
+						margin: 0px 0px 20px 0px;
+					}
+				}
+				.slider-screen-two__slide {
+					opacity: 1;
+					&:not(:last-child) {
+						margin: 0px 0px 80px 0px;
+						@media (max-width: $md2+px) {
+							margin: 0px 0px 50px 0px;
+						}
+					}
+					@media (max-width: $md3+px) {
+						border: 1px dashed hsla(341, 42%, 39%, 0.2);
+						padding: 15px;
+						border-radius: 3px;
+					}
+				}
+				.item-screen-two__image {
+					transform: translate(-50%, -50%) scale(1);
+					opacity: 1;
+				}
+				.slider-screen-two {
+					padding: 0;
+				}
+				.slide-screen-two__number {
+					margin: 0px 0px 10px 0px;
+				}
+			}
+			.screen-four {
+				.screen-four__box-content {
+					padding: 50px 0px;
+					@media (max-width: $md3+px) {
+						padding: 30px 0px;
+					}
+				}
+			}
+			.screen-three {
+				.screen-three__box-content {
+					padding: 50px 0px;
+					@media (max-width: $md3+px) {
+						padding: 30px 0px;
+					}
+				}
+			}
+			.screen-five {
+				.screen-five__box-content {
+					padding: 50px 0px;
+				}
+				.image-slider-screen-five__logo {
+					display: none;
+				}
+				.image-slider-screen-five__body {
+					height: auto;
+				}
+				.image-slider-screen-five__slide {
+					&:nth-child(2) {
+						&:not(:last-child) {
+							margin: 0px 0px 100px 0px;
+						}
+					}
+					&:nth-child(3) {
+						&:not(:last-child) {
+							margin: 0px 0px 100px 0px;
+						}
+					}
+					&:not(:last-child) {
+						margin: 0px 0px 200px 0px;
+					}
+				}
+				.slide-img-screen-five__image {
+					img {
+						max-width: 100%;
+					}
+					&_branches {
+						transform: translate(0px, 0px);
+						background: url("../img/screen-five/logo.svg") center no-repeat;
+					}
+					&_rulet {
+						transform: translate(0px, 0px);
+					}
+					&_map {
+						transform: translate(0px, 0px);
+						z-index: 1;
+					}
+					&_count-big {
+						transform: translate(0px, 0px);
+					}
+				}
+				.slide-img-screen-five__year {
+					opacity: 1;
+				}
+				.image-logo-map {
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -20%);
+				}
+				.image-logo-rulet {
+					display: block;
+					position: absolute;
+					bottom: 100%;
+					left: 50%;
+					transform: translate(-50%, -10%);
+				}
+				.image-logo-count {
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+				.content-slider-screen-five__box-circle {
+					//left: 35.1%;
+				}
+				.content-slider-screen-five__body {
+					height: auto;
+				}
+				.content-slider-screen-five__slide {
+					padding: 20px 0px 0px 0px;
+					opacity: 1;
+					&:nth-child(2) {
+						padding: 40px 0px 0px 0px;
+					}
+				}
+				.slide-content-screen-five {
+					&_two {
+						padding: 50px 0px 0px 0px;
+					}
+					&__body {
+						margin: 0px 0px 0px 20%;
+						opacity: 1 !important;
+					}
+				}
+				.slide-content-screen-five__number {
+					border-radius: 50%;
+					background-color: hsla(350, 19%, 87%, 0.4);
+					width: 80px;
+					height: 80px;
+					flex: 0 0 80px;
+					span {
+						position: relative;
+						top: 4px;
+					}
+				}
+				.slide-content-screen-five__text {
+					font-size: 30px;
+				}
+				.content-slider-screen-five__box-circle {
+					display: none;
+				}
+				.slide-content-screen-five__body {
+					@media (max-width: $md2+px) {
+						margin: 0px 0px 0px 20%;
+						opacity: 1 !important;
+					}
+					@media (max-width: $md3+px) {
+						margin: 0px 0px 0px 15%;
+					}
+					@media (max-width: 500px) {
+						margin: 0px 0px 0px 10%;
+					}
+				}
+			}
+		}
+	}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+._container {
+	max-width: $maxWidthContainer + px;
+	margin: 0 auto;
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms";
+@import "ui";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "datepicker";
+//@import "lightgallery";
+//@import "pagging";
+//@import "popup";
+@import "header";
+@import "footer";
+@import "home";
+@import "contacts";
+@import "content";
+@import "services";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.page {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	// .page__wrraper
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+	}
+	// .page__screen
+	&__screen {
+		flex: 1 0 100%;
+	}
+	@media (max-width: $md2+px) {
+		position: relative;
+		overflow: visible;
+		&__wrapper {
+			display: block;
+		}
+		.page__screen:first-child {
+			min-height: 100vh;
+			.screen-one {
+				min-height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+		.page__screen {
+			._body-style {
+				margin: 0;
+			}
+			.screen-two {
+				.slider-screen-two__body {
+					height: auto;
+				}
+				.screen-two__box-content {
+					padding: 50px 0px;
+					@media (max-width: $md3+px) {
+						padding: 30px 0px;
+					}
+				}
+				.item-screen-two__title {
+					@media (max-width: $md3+px) {
+						margin: 0px 0px 20px 0px;
+					}
+				}
+				.slider-screen-two__slide {
+					opacity: 1;
+					&:not(:last-child) {
+						margin: 0px 0px 80px 0px;
+						@media (max-width:$md3+px){
+							  margin: 0px 0px 40px 0px;
+						}
+					}
+					@media (max-width: $md3+px) {
+						border: 1px dashed hsla(341, 42%, 39%, 0.2);
+						padding: 15px;
+						border-radius: 3px;
+					}
+				}
+				.item-screen-two__image {
+					transform: translate(-50%, -50%) scale(1);
+					opacity: 1;
+				}
+				.slider-screen-two {
+					padding: 0;
+				}
+				.slide-screen-two__number {
+					margin: 0px 0px 10px 0px;
+				}
+			}
+		}
+	}
+}
+//========================================================================================================================================================
+.page-services {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+	}
+	// .page__screen
+	&__screen {
+		flex: 1 0 100%;
+	}
+	// .page-services__block
+	&__block {
+	}
+	@media (max-width: $md2+px) {
+		position: relative;
+		overflow: visible;
+		&__wrapper {
+			display: block;
+		}
+	}
+}
+//========================================================================================================================================================
+.main {
+	flex: 1 1 auto;
+	padding: 120px 0px 0px 0px;
+	@media (max-width: $md2+px) {
+		padding: 100px 0px 0px 0px;
+	}
+	@media (max-width: $md3+px) {
+		padding: 80px 0px 0px 0px;
+	}
+	// .main__content
+	&__content {
+	}
+	// .main__contacts
+	&__contacts {
+	}
+	// .main__map
+	&__map {
+	}
+}
+//===================================================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================

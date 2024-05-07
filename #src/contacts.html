@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Контакты"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('_header.html',{
+		"logo": "1",
+		"phone": "1",
+		"menu": "1",
+		})
+		<main class="main">
+			<section class="main__contacts contacts">
+				<div class="contacts__container _container">
+					<h1 class="contacts__title _title _contacts-title">Контакты</h1>
+					<div class="contacts__info info-contacts">
+						<div class="info-contacts__row _info-contacts-row-one">
+							<div class="info-contacts__column">
+								<div class="info-contacts__item item-info-contacts">
+									<div class="item-info-contacts__city city-item-info">
+										<div class="city-item-info__name _label">
+											Москва
+										</div>
+										<a href="#" class="city-item-info__map-button  btn-map _active">
+											<div class="btn-map__icon _icon-map"></div>
+											<div class="btn-map__text">
+												Адрес отмечен на карте
+											</div>
+										</a>
+									</div>
+									<div class="item-info-contacts__address">
+										ул. Новый Арбат, 14, стр.1.
+									</div>
+								</div>
+							</div>
+							<div class="info-contacts__column">
+								<div class="info-contacts__item item-info-contacts">
+									<a href="tel:+74951818585" class="item-info-contacts__phone _label">+7(495)181-85-85</a>
+									<a href="mailto:info@pomosch.com" class="item-info-contacts__mail">info@pomosch.com</a>
+								</div>
+							</div>
+						</div>
+						<div class="info-contacts__row _info-contacts-row-two">
+							<div class="info-contacts__column">
+								<div class="info-contacts__item item-info-contacts">
+									<div class="item-info-contacts__city city-item-info">
+										<div class="city-item-info__name _label">
+											Санкт-Петербург
+										</div>
+										<a href="#" class="city-item-info__map-button  btn-map">
+											<div class="btn-map__icon _icon-map"></div>
+											<div class="btn-map__text">
+												Показать на карте
+											</div>
+										</a>
+									</div>
+									<div class="item-info-contacts__address">
+										Синопская наб, 50а, лит. А.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="main__map map _info-contacts-row-map">
+				<div class="map__conteiner">
+					<div id="map" class="map__body"></div>
+				</div>
+			</div>
+		</main>
+		@@include('_footer.html',{
+			"logo": "1",
+		})
+	</div>
+	@@include('_js.html',{})
+	
+</body>
+
+</html>

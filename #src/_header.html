@@ -1,0 +1,29 @@
+<header class="header ">
+	<div class="header__container  _container">
+		<div class="header__wrapper">
+			<div id="header-1" class="header__logo  ">
+				<a href="index.html" class=" logo @@if(logo==1){_black} ">
+					<img class="header__white-logo" src="img/logo.svg" alt="logo">
+					<img class=" header__black-logo" src="img/logo-b.svg" alt="logo">
+				</a>
+			</div>
+			<div class="header__content">
+				<div class="header__menu menu @@if(menu==1){_black}">
+					<div class="menu__burger burger  ">
+						<span class="burger__one"></span>
+						<span class="burger__two"></span>
+						<span class="burger__three"></span>
+					</div>
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="_menu__item-one  "><a href="index.html" class="menu__link menu__link_about-company ">О компании</a></li>
+							<li class=" _menu__item-two "><a href="services.html" class="menu__link menu__link_1">Услуги</a></li>
+							<li class="_menu__item-three "><a href="contacts.html" class="menu__link menu__link_2">Контакты</a></li>
+						</ul>
+					</nav>
+				</div>
+				<a href="tel:+74951818585" class="  header__call _icon-mobile @@if(phone==1){_black}"><span>+7(495)181-85-85</span></a>
+			</div>
+		</div>
+	</div>
+</header>

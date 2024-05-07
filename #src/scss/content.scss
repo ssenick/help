@@ -1,0 +1,19 @@
+.content-block {
+	padding: 120px 0px 40px 0px;
+	// .content-block__container
+	&__container {
+	}
+	// .content-block__title
+	&__title {
+		margin-bottom: 50px;
+		text-align: center;
+	}
+	// .content-block__text
+	&__text {
+		p {
+			&:not(:last-child) {
+				margin: 0px 0px 40px 0px;
+			}
+		}
+	}
+}

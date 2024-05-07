@@ -4,7 +4,7 @@ DEMO: https://help.ssenick.fun/index.html
 
 ## Project: Fullscreen Scroll Website using HTML, SCSS, JavaScript, Swiper library, and GSAP.
 
-1. Project Description:
+## Project Description:
 
 Creating a multi-page fullscreen website with full-page scrolling and animated appearance effects of elements. GSAP library was used for creating element appearance animations. Additionally, Google Maps was integrated into the project.
 
